@@ -1,1 +1,9 @@
 /* style to go here */
+
+h1 {
+  font-family: "Frijole", cursive;
+}
+
+#egg {
+  border: solid red 2px;
+}
