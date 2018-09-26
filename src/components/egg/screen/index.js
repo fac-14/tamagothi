@@ -3,12 +3,12 @@ import Status from "./status";
 import Avatar from "./avatar";
 
 export default class Screen extends React.Component {
-  render(){
+  render() {
     return (
       <div id="screen">
-        <Status />
+        <Status health={this.props.health} />
         <Avatar />
       </div>
-    )
+    );
   }
 }

@@ -4,9 +4,9 @@ export default class Buttons extends React.Component {
   render() {
     return (
       <div id="buttons">
-        <div>HUG ME</div>
-        <div>HURT ME</div>
+        <button onClick={this.props.hurtMe}>HURT ME :(</button>
+        <button onClick={this.props.hugMe}>HUG ME?? :/</button>
       </div>
-    )
+    );
   }
 }

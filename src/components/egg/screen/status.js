@@ -3,29 +3,22 @@ import decreaseHealth from "../../../utils/decreaseHealth";
 import increaseHealth from "../../../utils/increaseHealth";
 
 export default class Status extends React.Component {
+  // hurtMe = event => {
+  //   event.preventDefault();
+  //   this.setState({ health: decreaseHealth(this.props.health) });
+  // };
 
-  state = {
-    health: 69
-  }
+  // hugMe = event => {
+  //   event.preventDefault();
+  //   this.setState({ health: increaseHealth(this.props.health) });
+  // };
 
-  hurtMe = event => {
-    event.preventDefault();
-    this.setState({ health: decreaseHealth(this.state.health) });
-  }
-
-  hugMe = event => {
-    event.preventDefault();
-    this.setState({ health: increaseHealth(this.state.health) });
-  }
-
-  render(){
-    const { health } = this.state;
+  render() {
+    const { health } = this.props;
     return (
       <div id="status">
-        <progress min="0" max="100" value={health}></progress>
-        <button onClick={this.hurtMe}>HURT ME :(</button>
-        <button onClick={this.hugMe}>HUG ME?? :/</button>
+        <progress min="0" max="100" value={health} />
       </div>
-    )
+    );
   }
 }
