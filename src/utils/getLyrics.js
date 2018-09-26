@@ -13,7 +13,7 @@ export const getLyrics = (trackID) => {
   .then(checkResponse)
   .then(response => {
     console.log(response.message.body.lyrics.lyrics_body)
-    return response})
+    return response.message.body.lyrics.lyrics_body})
   .catch(err => {
     throw new Error(`fetch get user data failed: ${err}`)
   })

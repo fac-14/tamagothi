@@ -14,21 +14,25 @@ export default class Egg extends React.Component {
   hurtMe = event => {
     event.preventDefault();
     this.setState({ health: decreaseHealth(this.state.health) });
-    const trackID = 85839311;
-    getLyrics(trackID).then(data => this.setState({lyrics: data}));
+    // const trackID = 85839311;
+    // getLyrics(trackID).then(data => this.setState({lyrics: data}));
   };
 
   hugMe = event => {
     event.preventDefault();
     this.setState({ health: increaseHealth(this.state.health) });
-    const trackID = 85839311;
-    getLyrics(trackID).then(data => this.setState({lyrics: data}));
+    // const trackID = 85839311;
+    // getLyrics(trackID).then(data => this.setState({lyrics: data}));
   };
 
-  // componentDidMount() {
-  //   const trackID = 85839311;
-  //   getLyrics(trackID).then(data => this.setState({lyrics: data}));
-  // }
+  componentDidMount() {
+    const trackID = 85839311;
+    getLyrics(trackID).then(data => {
+      this.setState({lyrics: data})
+      localStorage.setItem("lyrics", data)
+      console.log("local storage is now:" + data)
+    });
+  }
 
   render() {
     return (
