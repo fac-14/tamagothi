@@ -6,7 +6,7 @@ import Egg from "./egg/index";
 export default class App extends React.Component {
   render() {
     return (
-      <div>
+      <div id="main">
         <div id="title">
           <h1>tamaGOTHi</h1>
         </div>
