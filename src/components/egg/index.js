@@ -58,9 +58,9 @@ export default class Egg extends React.Component {
     });
     pickRandomLyric();
     const trackNumber = pickRandomLyric();
-    this.setState({ randomLyric: this.state.lyrics[trackNumber] });
+    const splitLyric = this.state.lyrics[trackNumber].split("?")[0];
+    this.setState({ randomLyric: splitLyric });
     this.toggleLyric();
-    console.log(this.state.name);
   };
 
   hugMe = event => {
@@ -74,7 +74,8 @@ export default class Egg extends React.Component {
     });
     pickRandomLyric();
     const trackNumber = pickRandomLyric();
-    this.setState({ randomLyric: this.state.lyrics[trackNumber] });
+    const splitLyric = this.state.lyrics[trackNumber].split("?")[0];
+    this.setState({ randomLyric: splitLyric });
     this.toggleLyric();
   };
 
