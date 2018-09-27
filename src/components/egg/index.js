@@ -9,6 +9,7 @@ import avatarObj from "../../utils/avatar";
 import checkAvatar from "../../utils/checkAvatar";
 import setFighter from "../../utils/setFighter";
 import setAvatar from "../../utils/setAvatar";
+import getArtistLyrics from "../../utils/lyrics";
 
 export default class Egg extends React.Component {
   state = {
@@ -24,6 +25,17 @@ export default class Egg extends React.Component {
 
   setFighter = event => {
     this.setState({ name: setFighter(event), avatarObj: setAvatar(event) });
+    const artistLyrics = getArtistLyrics(event);
+    console.log("artist lyrics ", artistLyrics);
+    const trackIDone = artistLyrics[0];
+    const trackIDtwo = artistLyrics[1];
+    const trackIDthree = artistLyrics[2];
+    const trackOne = getLyrics(trackIDone);
+    const trackTwo = getLyrics(trackIDtwo);
+    const trackThree = getLyrics(trackIDthree);
+    Promise.all([trackOne, trackTwo, trackThree]).then(tracks => {
+      this.setState({ lyrics: tracks });
+    });
   };
 
   toggleLyric = () => {
@@ -36,9 +48,9 @@ export default class Egg extends React.Component {
   };
 
   hurtMe = event => {
-    event.preventDefault();
+    console.log("lyrics ", this.state.lyrics);
     const newStats = decreaseHealth(this.state.health, this.state.level);
-    const newAvatar = checkAvatar(this.state.level, avatarObj);
+    const newAvatar = checkAvatar(this.state.level, avatarObj, this.state.name);
     this.setState({
       health: newStats[0],
       level: newStats[1],
@@ -52,9 +64,9 @@ export default class Egg extends React.Component {
   };
 
   hugMe = event => {
-    event.preventDefault();
+    console.log("lyrics ", this.state.lyrics);
     const newStats = increaseHealth(this.state.health, this.state.level);
-    const newAvatar = checkAvatar(this.state.level, avatarObj);
+    const newAvatar = checkAvatar(this.state.level, avatarObj, this.state.name);
     this.setState({
       health: newStats[0],
       level: newStats[1],
@@ -66,17 +78,17 @@ export default class Egg extends React.Component {
     this.toggleLyric();
   };
 
-  componentDidMount() {
-    const trackIDone = 85839311;
-    const trackIDtwo = 153938197;
-    const trackIDthree = 114306264;
-    const trackOne = getLyrics(trackIDone);
-    const trackTwo = getLyrics(trackIDtwo);
-    const trackThree = getLyrics(trackIDthree);
-    Promise.all([trackOne, trackTwo, trackThree]).then(tracks => {
-      this.setState({ lyrics: tracks });
-    });
-  }
+  // componentDidMount() {
+  //   const trackIDone = 85839311;
+  //   const trackIDtwo = 153938197;
+  //   const trackIDthree = 114306264;
+  //   const trackOne = getLyrics(trackIDone);
+  //   const trackTwo = getLyrics(trackIDtwo);
+  //   const trackThree = getLyrics(trackIDthree);
+  //   Promise.all([trackOne, trackTwo, trackThree]).then(tracks => {
+  //     this.setState({ lyrics: tracks });
+  //   });
+  // }
 
   render() {
     if (this.state.name === null) {
@@ -107,6 +119,7 @@ export default class Egg extends React.Component {
               avatarObj={this.state.avatarObj}
               name={this.state.name}
               setFighter={this.setFighter}
+              level={this.state.level}
             />
 
             <Buttons hurtMe={this.hurtMe} hugMe={this.hugMe} />
