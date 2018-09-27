@@ -7,6 +7,7 @@ import { getLyrics } from "../../utils/getLyrics";
 import pickRandomLyric from "../../utils/pickRandomLyric";
 import avatarObj from "../../utils/avatar";
 import checkAvatar from "../../utils/checkAvatar";
+import setFighter from "../../utils/setFighter"
 
 export default class Egg extends React.Component {
   state = {
@@ -19,6 +20,10 @@ export default class Egg extends React.Component {
     dead: false,
     name: null
   };
+
+  setFighter = event => {
+    this.setState( { name: setFighter(event) });
+  }
 
   toggleLyric = () => {
     console.log("revealed!");
@@ -42,6 +47,7 @@ export default class Egg extends React.Component {
     const trackNumber = pickRandomLyric();
     this.setState({ randomLyric: this.state.lyrics[trackNumber] });
     this.toggleLyric();
+    console.log(this.state.name)
   };
 
   hugMe = event => {
@@ -81,6 +87,7 @@ export default class Egg extends React.Component {
           lyricHidden={this.state.lyricHidden}
           avatarObj={this.state.avatarObj}
           name={this.state.name}
+          setFighter={this.setFighter}
         />
         <Buttons hurtMe={this.hurtMe} hugMe={this.hugMe} />
       </div>

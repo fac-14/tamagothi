@@ -8,7 +8,7 @@ export default class Screen extends React.Component {
     if (this.props.name === null) {
       return (
         <div id="screen">
-          <Loading />
+          <Loading setFighter={this.props.setFighter}/>
         </div>
       )
     } else {
