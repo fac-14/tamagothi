@@ -16,7 +16,8 @@ export default class Egg extends React.Component {
     lyricHidden: true,
     avatarObj: avatarObj[0],
     level: 1,
-    dead: false
+    dead: false,
+    name: null
   };
 
   toggleLyric = () => {
@@ -79,6 +80,7 @@ export default class Egg extends React.Component {
           randomLyric={this.state.randomLyric}
           lyricHidden={this.state.lyricHidden}
           avatarObj={this.state.avatarObj}
+          name={this.state.name}
         />
         <Buttons hurtMe={this.hurtMe} hugMe={this.hugMe} />
       </div>
