@@ -1,12 +1,12 @@
 import React from "react";
-import jaredleto from "../../../../public/img/jaredleto.jpeg";
+// import jaredleto1 from "../../../../public/img/jaredleto1.jpeg";
 
 export default class Avatar extends React.Component {
-  render(){
+  render() {
     return (
       <div id="avatar">
-        <img src={jaredleto} />
+        <img src={this.props.avatarObj} />
       </div>
-    )
+    );
   }
 }

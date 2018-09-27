@@ -7,8 +7,8 @@ export default class Banner extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>{this.state.message}</p>
+      <div id="banner">
+        <h1>{this.state.message}</h1>
       </div>
     );
   }
