@@ -2,7 +2,7 @@ import React from "react";
 
 export default class Banner extends React.Component {
   state = {
-    message: "Hug or poke your Emo :("
+    message: "Hug or hurt your Emo :("
   };
 
   render() {
