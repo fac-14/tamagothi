@@ -14,8 +14,23 @@ h1 {
   font-family: "Frijole", cursive;
 }
 
+h3 {
+  text-align: center;
+}
+
 img {
   border-radius: 50%;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  margin: 5px;
+  color: white;
+  font-family: Frijole, cursive;
+  background: #80241C;
+  border: 2px black solid;
+  font-size: 1.5rem;
 }
 
 #main {
@@ -49,7 +64,6 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
 }
 
 #egg-drawing {
@@ -69,10 +83,12 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 75%;
+  width: 65%;
   height: 55%;
   border-radius: 4px;
+  border: 2px #ccc solid;
   background-color: white;
+  box-shadow: inset 2px, 2px, 100px,#ccc;
 }
 
 #banner {
