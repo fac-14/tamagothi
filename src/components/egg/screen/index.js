@@ -3,9 +3,6 @@ import Status from "./status";
 import Avatar from "./avatar";
 
 export default class Screen extends React.Component {
-  componentDidMount() {
-    
-  }
 
   render() {
     // if (!this.props.randomLyric) {
@@ -28,7 +25,8 @@ export default class Screen extends React.Component {
       return (
         <div id="screen">
           <Status health={this.props.health} />
-          <Avatar />
+          {!this.props.lyricHidden && <p>{this.props.randomLyric}</p>}
+          {this.props.lyricHidden && <Avatar />}
         </div>
       );
   }

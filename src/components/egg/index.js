@@ -14,11 +14,21 @@ export default class Egg extends React.Component {
     lyricHidden: true
   };
 
+  toggleLyric = () => {
+    console.log('revealed!')
+    this.setState({ lyricHidden: false }, () => {
+      setTimeout(() => {
+        this.setState({ lyricHidden: true });
+      }, 3000)
+    });
+  }
+
   hurtMe = event => {
     event.preventDefault();
     this.setState({ health: decreaseHealth(this.state.health) });
     const trackNumber = pickRandomLyric();
     this.setState({ randomLyric: this.state.lyrics[trackNumber]});
+    this.toggleLyric();
   };
 
   hugMe = event => {
@@ -27,6 +37,7 @@ export default class Egg extends React.Component {
     pickRandomLyric();
     const trackNumber = pickRandomLyric();
     this.setState({ randomLyric: this.state.lyrics[trackNumber]});
+    this.toggleLyric();
   };
 
   componentDidMount() {
