@@ -7,7 +7,8 @@ import { getLyrics } from "../../utils/getLyrics";
 import pickRandomLyric from "../../utils/pickRandomLyric";
 import avatarObj from "../../utils/avatar";
 import checkAvatar from "../../utils/checkAvatar";
-import setFighter from "../../utils/setFighter"
+import setFighter from "../../utils/setFighter";
+import setAvatar from "../../utils/setAvatar";
 
 export default class Egg extends React.Component {
   state = {
@@ -15,15 +16,15 @@ export default class Egg extends React.Component {
     lyrics: null,
     randomLyric: null,
     lyricHidden: true,
-    avatarObj: avatarObj[0],
+    avatarObj: avatarObj[0][0],
     level: 1,
     dead: false,
     name: null
   };
 
   setFighter = event => {
-    this.setState({ name: setFighter(event) });
-  }
+    this.setState({ name: setFighter(event), avatarObj: setAvatar(event) });
+  };
 
   toggleLyric = () => {
     console.log("revealed!");
@@ -47,7 +48,7 @@ export default class Egg extends React.Component {
     const trackNumber = pickRandomLyric();
     this.setState({ randomLyric: this.state.lyrics[trackNumber] });
     this.toggleLyric();
-    console.log(this.state.name)
+    console.log(this.state.name);
   };
 
   hugMe = event => {
@@ -81,16 +82,16 @@ export default class Egg extends React.Component {
     if (this.state.name === null) {
       return (
         <div id="egg">
-        <div id="egg-drawing">
-          <Screen
-            health={this.state.health}
-            lyrics={this.state.lyrics}
-            randomLyric={this.state.randomLyric}
-            lyricHidden={this.state.lyricHidden}
-            avatarObj={this.state.avatarObj}
-            name={this.state.name}
-            setFighter={this.setFighter}
-          />
+          <div id="egg-drawing">
+            <Screen
+              health={this.state.health}
+              lyrics={this.state.lyrics}
+              randomLyric={this.state.randomLyric}
+              lyricHidden={this.state.lyricHidden}
+              avatarObj={this.state.avatarObj}
+              name={this.state.name}
+              setFighter={this.setFighter}
+            />
           </div>
         </div>
       );
@@ -98,17 +99,17 @@ export default class Egg extends React.Component {
       return (
         <div id="egg">
           <div id="egg-drawing">
-          <Screen
-            health={this.state.health}
-            lyrics={this.state.lyrics}
-            randomLyric={this.state.randomLyric}
-            lyricHidden={this.state.lyricHidden}
-            avatarObj={this.state.avatarObj}
-            name={this.state.name}
-            setFighter={this.setFighter}
-          />
+            <Screen
+              health={this.state.health}
+              lyrics={this.state.lyrics}
+              randomLyric={this.state.randomLyric}
+              lyricHidden={this.state.lyricHidden}
+              avatarObj={this.state.avatarObj}
+              name={this.state.name}
+              setFighter={this.setFighter}
+            />
 
-          <Buttons hurtMe={this.hurtMe} hugMe={this.hugMe} />
+            <Buttons hurtMe={this.hurtMe} hugMe={this.hugMe} />
           </div>
         </div>
       );
