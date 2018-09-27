@@ -4,30 +4,34 @@ import Screen from "./screen/index";
 import decreaseHealth from "../../utils/decreaseHealth";
 import increaseHealth from "../../utils/increaseHealth";
 import { getLyrics } from "../../utils/getLyrics";
-import pickRandomLyric from "../../utils/pickRandomLyric"
+import pickRandomLyric from "../../utils/pickRandomLyric";
+import avatarObj from "../../utils/avatar";
 
 export default class Egg extends React.Component {
   state = {
     health: 69,
     lyrics: null,
     randomLyric: null,
-    lyricHidden: true
+    lyricHidden: true,
+    avatarObj: avatarObj[0],
+    level: 1,
+    dead: false
   };
 
   toggleLyric = () => {
-    console.log('revealed!')
+    console.log("revealed!");
     this.setState({ lyricHidden: false }, () => {
       setTimeout(() => {
         this.setState({ lyricHidden: true });
-      }, 3000)
+      }, 3000);
     });
-  }
+  };
 
   hurtMe = event => {
     event.preventDefault();
     this.setState({ health: decreaseHealth(this.state.health) });
     const trackNumber = pickRandomLyric();
-    this.setState({ randomLyric: this.state.lyrics[trackNumber]});
+    this.setState({ randomLyric: this.state.lyrics[trackNumber] });
     this.toggleLyric();
   };
 
@@ -36,7 +40,7 @@ export default class Egg extends React.Component {
     this.setState({ health: increaseHealth(this.state.health) });
     pickRandomLyric();
     const trackNumber = pickRandomLyric();
-    this.setState({ randomLyric: this.state.lyrics[trackNumber]});
+    this.setState({ randomLyric: this.state.lyrics[trackNumber] });
     this.toggleLyric();
   };
 
@@ -47,16 +51,21 @@ export default class Egg extends React.Component {
     const trackOne = getLyrics(trackIDone);
     const trackTwo = getLyrics(trackIDtwo);
     const trackThree = getLyrics(trackIDthree);
-    Promise.all([trackOne, trackTwo, trackThree])
-    .then(tracks => {
-      this.setState({lyrics: tracks})
-    })
+    Promise.all([trackOne, trackTwo, trackThree]).then(tracks => {
+      this.setState({ lyrics: tracks });
+    });
   }
 
   render() {
     return (
       <div id="egg">
-        <Screen health={this.state.health} lyrics={this.state.lyrics} randomLyric={this.state.randomLyric} lyricHidden={this.state.lyricHidden} />
+        <Screen
+          health={this.state.health}
+          lyrics={this.state.lyrics}
+          randomLyric={this.state.randomLyric}
+          lyricHidden={this.state.lyricHidden}
+          avatarObj={this.state.avatarObj}
+        />
         <Buttons hurtMe={this.hurtMe} hugMe={this.hugMe} />
       </div>
     );

@@ -3,7 +3,6 @@ import Status from "./status";
 import Avatar from "./avatar";
 
 export default class Screen extends React.Component {
-
   render() {
     // if (!this.props.randomLyric) {
     //   return (
@@ -22,12 +21,12 @@ export default class Screen extends React.Component {
     //     </div>
     //   );
     // }
-      return (
-        <div id="screen">
-          <Status health={this.props.health} />
-          {!this.props.lyricHidden && <p>{this.props.randomLyric}</p>}
-          {this.props.lyricHidden && <Avatar />}
-        </div>
-      );
+    return (
+      <div id="screen">
+        <Status health={this.props.health} />
+        {!this.props.lyricHidden && <p>{this.props.randomLyric}</p>}
+        {this.props.lyricHidden && <Avatar avatarObj={this.props.avatarObj} />}
+      </div>
+    );
   }
 }
