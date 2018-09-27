@@ -6,6 +6,7 @@ import increaseHealth from "../../utils/increaseHealth";
 import { getLyrics } from "../../utils/getLyrics";
 import pickRandomLyric from "../../utils/pickRandomLyric";
 import avatarObj from "../../utils/avatar";
+import increaseLevel from "../../utils/increaseLevel";
 
 export default class Egg extends React.Component {
   state = {
@@ -37,7 +38,11 @@ export default class Egg extends React.Component {
 
   hugMe = event => {
     event.preventDefault();
-    this.setState({ health: increaseHealth(this.state.health) });
+    const newStats = increaseHealth(this.state.health, this.state.level);
+    this.setState({
+      health: newStats[0],
+      level: newStats[1]
+    });
     pickRandomLyric();
     const trackNumber = pickRandomLyric();
     this.setState({ randomLyric: this.state.lyrics[trackNumber] });
