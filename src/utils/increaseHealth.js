@@ -3,13 +3,17 @@ const getRandomInt = max => {
 };
 
 const increaseHealth = (health, level) => {
-  health = health + getRandomInt(20);
-  if (health > 100) {
-    const newLevel = level + 1;
-    const newHealth = health - 100;
-    return [newHealth, newLevel];
+  if (level <= 3) {
+    health = health + getRandomInt(20);
+    if (health > 99) {
+      const newLevel = level + 1;
+      const newHealth = health - 100;
+      return [newHealth, newLevel];
+    }
+    return [health, level];
+  } else {
+    return [health, level];
   }
-  return [health, level];
 };
 
 export default increaseHealth;

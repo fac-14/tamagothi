@@ -10,16 +10,74 @@ body {
   background: #CCC;
 }
 
-#main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 h1 {
   font-family: "Frijole", cursive;
 }
 
+img {
+  border-radius: 50%;
+}
+
+#main {
+  display: grid;
+  grid-template-areas: 
+    "a d d d d d d f"
+    "a b b b b b b f"
+    "a b b b b b b f"
+    "a b b b b b b f"
+    "a b b b b b b f"
+    "a b b b b b b f"
+    "a b b b b b b f"
+    "a c c c c c c f";
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 100vw;
+  height: 100vh;
+}
+
+#title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: d;
+}
+
 #egg {
-  border: solid red 2px;
+  grid-area: b;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+
+#egg-drawing {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+   width: 100%;
+   height: 100%;
+   background-color: black;
+   -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
+   border-radius:         50%  50%  50%  50%  / 60%   60%   40%  40%;
+}
+
+#screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  height: 55%;
+  border-radius: 4px;
+  background-color: white;
+}
+
+#banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: c;
 }

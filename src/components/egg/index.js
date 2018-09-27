@@ -22,7 +22,7 @@ export default class Egg extends React.Component {
   };
 
   setFighter = event => {
-    this.setState( { name: setFighter(event) });
+    this.setState({ name: setFighter(event) });
   }
 
   toggleLyric = () => {
@@ -78,19 +78,40 @@ export default class Egg extends React.Component {
   }
 
   render() {
-    return (
-      <div id="egg">
-        <Screen
-          health={this.state.health}
-          lyrics={this.state.lyrics}
-          randomLyric={this.state.randomLyric}
-          lyricHidden={this.state.lyricHidden}
-          avatarObj={this.state.avatarObj}
-          name={this.state.name}
-          setFighter={this.setFighter}
-        />
-        <Buttons hurtMe={this.hurtMe} hugMe={this.hugMe} />
-      </div>
-    );
+    if (this.state.name === null) {
+      return (
+        <div id="egg">
+        <div id="egg-drawing">
+          <Screen
+            health={this.state.health}
+            lyrics={this.state.lyrics}
+            randomLyric={this.state.randomLyric}
+            lyricHidden={this.state.lyricHidden}
+            avatarObj={this.state.avatarObj}
+            name={this.state.name}
+            setFighter={this.setFighter}
+          />
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div id="egg">
+          <div id="egg-drawing">
+          <Screen
+            health={this.state.health}
+            lyrics={this.state.lyrics}
+            randomLyric={this.state.randomLyric}
+            lyricHidden={this.state.lyricHidden}
+            avatarObj={this.state.avatarObj}
+            name={this.state.name}
+            setFighter={this.setFighter}
+          />
+
+          <Buttons hurtMe={this.hurtMe} hugMe={this.hugMe} />
+          </div>
+        </div>
+      );
+    }
   }
 }
