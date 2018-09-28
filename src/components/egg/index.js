@@ -65,7 +65,17 @@ export default class Egg extends React.Component {
 
   hugMe = event => {
     console.log("lyrics ", this.state.lyrics);
+<<<<<<< HEAD
     const newStats = increaseHealth(this.state.health, this.state.level);
+=======
+    const newStats = increaseHealth(
+      this.state.health,
+      this.state.level,
+      avatarObj,
+      this.state.name
+    );
+    const newAvatar = checkAvatar(this.state.level, avatarObj, this.state.name);
+>>>>>>> master
     this.setState({
       health: newStats[0],
       level: newStats[1]
@@ -79,6 +89,25 @@ export default class Egg extends React.Component {
     this.toggleLyric();
   };
 
+<<<<<<< HEAD
+=======
+  restart = event => {
+    location.reload();
+  };
+
+  // componentDidMount() {
+  //   const trackIDone = 85839311;
+  //   const trackIDtwo = 153938197;
+  //   const trackIDthree = 114306264;
+  //   const trackOne = getLyrics(trackIDone);
+  //   const trackTwo = getLyrics(trackIDtwo);
+  //   const trackThree = getLyrics(trackIDthree);
+  //   Promise.all([trackOne, trackTwo, trackThree]).then(tracks => {
+  //     this.setState({ lyrics: tracks });
+  //   });
+  // }
+
+>>>>>>> master
   render() {
     if (this.state.name === null) {
       return (
@@ -111,7 +140,12 @@ export default class Egg extends React.Component {
               level={this.state.level}
             />
 
-            <Buttons hurtMe={this.hurtMe} hugMe={this.hugMe} />
+            <Buttons
+              hurtMe={this.hurtMe}
+              hugMe={this.hugMe}
+              level={this.state.level}
+              restart={this.restart}
+            />
           </div>
         </div>
       );
