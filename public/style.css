@@ -92,6 +92,7 @@ progress[value]::-webkit-progress-value {
 }
 
 #main {
+  position: relative;
   display: grid;
   grid-template-areas:
     "a d d d d d d f"
@@ -106,6 +107,109 @@ progress[value]::-webkit-progress-value {
   grid-template-rows: repeat(8, 1fr);
   width: 100vw;
   height: 100vh;
+}
+
+.chain {
+  height: 30px;
+  width: 30px;
+  background: #777;
+  border-radius: 50%;
+  box-shadow:
+    2px 2px 2px #666,
+    inset 5px 5px 30px #222,
+    inset 25px 10px 50px #999,
+    inset 25px 15px 25px #FFF
+    ;
+}
+
+#beads {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+#chain1 {
+  position: absolute;
+  bottom: 150px;
+  left: 390px;
+}
+
+#chain2 {
+  position: absolute;
+  bottom: 130px;
+  left: 370px;
+}
+
+#chain3 {
+  position: absolute;
+  bottom: 105px;
+  left: 360px;
+}
+
+#chain4 {
+  position: absolute;
+  bottom: 76px;
+  left: 365px;
+}
+
+#chain5 {
+  position: absolute;
+  bottom: 48px;
+  left: 365px;
+}
+
+#chain6 {
+  position: absolute;
+  bottom: 22px;
+  left: 355px;
+}
+
+#chain7 {
+  position: absolute;
+  bottom: 165px;
+  left: 380px;
+}
+
+#chain8 {
+  position: absolute;
+  bottom: 170px;
+  left: 353px;
+}
+
+#chain9 {
+  position: absolute;
+  bottom: 152px;
+  left: 331px;
+}
+
+#chain10 {
+  position: absolute;
+  bottom: 130px;
+  left: 317px;
+}
+
+#chain11 {
+  position: absolute;
+  bottom: 102px;
+  left: 311px;
+}
+
+#chain12 {
+  position: absolute;
+  bottom: 72px;
+  left: 309px;
+}
+
+#chain13 {
+  position: absolute;
+  bottom: 42px;
+  left: 309px;
+}
+
+#chain14 {
+  position: absolute;
+  bottom: 25px;
+  left: 327px;
 }
 
 #title {
