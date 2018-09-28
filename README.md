@@ -7,3 +7,6 @@
     ░      ▒   ▒▒ ░░  ░      ░  ▒   ▒▒ ░  ░   ░   ░ ▒ ▒░     ░     ▒ ░▒░ ░ ▒ ░
   ░        ░   ▒   ░      ░     ░   ▒   ░ ░   ░ ░ ░ ░ ▒    ░       ░  ░░ ░ ▒ ░
                ░  ░       ░         ░  ░      ░     ░ ░            ░  ░  ░ ░  
+
+
+[You can play it here!](http://tamagothi.netlify.com/)
