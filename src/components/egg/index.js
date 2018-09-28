@@ -26,7 +26,6 @@ export default class Egg extends React.Component {
   setFighter = event => {
     this.setState({ name: setFighter(event), avatarObj: setAvatar(event) });
     const artistLyrics = getArtistLyrics(event);
-    console.log("artist lyrics ", artistLyrics);
     const trackIDone = artistLyrics[0];
     const trackIDtwo = artistLyrics[1];
     const trackIDthree = artistLyrics[2];
@@ -48,7 +47,6 @@ export default class Egg extends React.Component {
   };
 
   hurtMe = event => {
-    console.log("lyrics ", this.state.lyrics);
     const newStats = decreaseHealth(this.state.health, this.state.level);
     this.setState({
       health: newStats[0],
@@ -64,33 +62,24 @@ export default class Egg extends React.Component {
   };
 
   hugMe = event => {
-    console.log("lyrics ", this.state.lyrics);
-<<<<<<< HEAD
     const newStats = increaseHealth(this.state.health, this.state.level);
-=======
-    const newStats = increaseHealth(
-      this.state.health,
-      this.state.level,
-      avatarObj,
-      this.state.name
-    );
-    const newAvatar = checkAvatar(this.state.level, avatarObj, this.state.name);
->>>>>>> master
     this.setState({
       health: newStats[0],
       level: newStats[1]
     });
     const newAvatar = checkAvatar(this.state.level, avatarObj, this.state.name);
     this.setState({ avatarObj: newAvatar });
-    pickRandomLyric();
-    const trackNumber = pickRandomLyric();
-    const splitLyric = this.state.lyrics[trackNumber].split("?")[0];
-    this.setState({ randomLyric: splitLyric });
+    pickRandomLyric(this.state.lyrics);
+    const trackNumber = pickRandomLyric(this.state.lyrics);
+    const cleanLyrics = this.state.lyrics[trackNumber].split("******")[0];
+    // console.log("cleaned lyrics", cleanLyrics);
+    // const splitLyric = this.state.lyrics[trackNumber].split("?");
+    const splitLyric = cleanLyrics.split("?");
+    const snippetNumber = pickRandomLyric(splitLyric);
+    this.setState({ randomLyric: splitLyric[snippetNumber] });
     this.toggleLyric();
   };
 
-<<<<<<< HEAD
-=======
   restart = event => {
     location.reload();
   };
@@ -107,7 +96,6 @@ export default class Egg extends React.Component {
   //   });
   // }
 
->>>>>>> master
   render() {
     if (this.state.name === null) {
       return (
