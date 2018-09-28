@@ -65,7 +65,12 @@ export default class Egg extends React.Component {
 
   hugMe = event => {
     console.log("lyrics ", this.state.lyrics);
-    const newStats = increaseHealth(this.state.health, this.state.level);
+    const newStats = increaseHealth(
+      this.state.health,
+      this.state.level,
+      avatarObj,
+      this.state.name
+    );
     const newAvatar = checkAvatar(this.state.level, avatarObj, this.state.name);
     this.setState({
       health: newStats[0],
@@ -77,6 +82,10 @@ export default class Egg extends React.Component {
     const splitLyric = this.state.lyrics[trackNumber].split("?")[0];
     this.setState({ randomLyric: splitLyric });
     this.toggleLyric();
+  };
+
+  restart = event => {
+    location.reload();
   };
 
   // componentDidMount() {
@@ -123,7 +132,12 @@ export default class Egg extends React.Component {
               level={this.state.level}
             />
 
-            <Buttons hurtMe={this.hurtMe} hugMe={this.hugMe} />
+            <Buttons
+              hurtMe={this.hurtMe}
+              hugMe={this.hugMe}
+              level={this.state.level}
+              restart={this.restart}
+            />
           </div>
         </div>
       );
