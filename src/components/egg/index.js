@@ -43,19 +43,19 @@ export default class Egg extends React.Component {
     this.setState({ lyricHidden: false }, () => {
       setTimeout(() => {
         this.setState({ lyricHidden: true });
-      }, 3000);
+      }, 1500);
     });
   };
 
   hurtMe = event => {
     console.log("lyrics ", this.state.lyrics);
     const newStats = decreaseHealth(this.state.health, this.state.level);
-    const newAvatar = checkAvatar(this.state.level, avatarObj, this.state.name);
     this.setState({
       health: newStats[0],
-      level: newStats[1],
-      avatarObj: newAvatar
+      level: newStats[1]
     });
+    const newAvatar = checkAvatar(this.state.level, avatarObj, this.state.name);
+    this.setState({ avatarObj: newAvatar });
     pickRandomLyric();
     const trackNumber = pickRandomLyric();
     const splitLyric = this.state.lyrics[trackNumber].split("?")[0];
@@ -66,30 +66,18 @@ export default class Egg extends React.Component {
   hugMe = event => {
     console.log("lyrics ", this.state.lyrics);
     const newStats = increaseHealth(this.state.health, this.state.level);
-    const newAvatar = checkAvatar(this.state.level, avatarObj, this.state.name);
     this.setState({
       health: newStats[0],
-      level: newStats[1],
-      avatarObj: newAvatar
+      level: newStats[1]
     });
+    const newAvatar = checkAvatar(this.state.level, avatarObj, this.state.name);
+    this.setState({ avatarObj: newAvatar });
     pickRandomLyric();
     const trackNumber = pickRandomLyric();
     const splitLyric = this.state.lyrics[trackNumber].split("?")[0];
     this.setState({ randomLyric: splitLyric });
     this.toggleLyric();
   };
-
-  // componentDidMount() {
-  //   const trackIDone = 85839311;
-  //   const trackIDtwo = 153938197;
-  //   const trackIDthree = 114306264;
-  //   const trackOne = getLyrics(trackIDone);
-  //   const trackTwo = getLyrics(trackIDtwo);
-  //   const trackThree = getLyrics(trackIDthree);
-  //   Promise.all([trackOne, trackTwo, trackThree]).then(tracks => {
-  //     this.setState({ lyrics: tracks });
-  //   });
-  // }
 
   render() {
     if (this.state.name === null) {
