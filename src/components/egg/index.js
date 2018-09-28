@@ -84,18 +84,6 @@ export default class Egg extends React.Component {
     location.reload();
   };
 
-  // componentDidMount() {
-  //   const trackIDone = 85839311;
-  //   const trackIDtwo = 153938197;
-  //   const trackIDthree = 114306264;
-  //   const trackOne = getLyrics(trackIDone);
-  //   const trackTwo = getLyrics(trackIDtwo);
-  //   const trackThree = getLyrics(trackIDthree);
-  //   Promise.all([trackOne, trackTwo, trackThree]).then(tracks => {
-  //     this.setState({ lyrics: tracks });
-  //   });
-  // }
-
   render() {
     if (this.state.name === null) {
       return (
@@ -110,6 +98,9 @@ export default class Egg extends React.Component {
               name={this.state.name}
               setFighter={this.setFighter}
             />
+            <div id="pickmessage">
+              <button id="fakebutton">Pick your emo!</button>
+            </div>
           </div>
         </div>
       );

@@ -7,25 +7,25 @@ export default class Completed extends React.Component {
   render() {
     if (this.props.name === "leto") {
       return (
-        <div>
-          <h2>Congrats!</h2>
-          <h2>Jared is no longer emo!</h2>
+        <div className="win-lose">
+          <h3>Congrats!</h3>
+          <h3>Jared is no longer emo!</h3>
           <img src={happyLeto} />
         </div>
       );
     } else if (this.props.name === "avril") {
       return (
-        <div>
-          <h2>Congrats!</h2>
-          <h2>Avril is no longer emo!</h2>
+        <div className="win-lose">
+          <h3>Congrats!</h3>
+          <h3>Avril is no longer emo!</h3>
           <img src={happyAvril} />
         </div>
       );
     } else if (this.props.name === "gerard") {
       return (
-        <div>
-          <h2>Congrats!</h2>
-          <h2>Gerard is no longer emo!</h2>
+        <div className="win-lose">
+          <h3>Congrats!</h3>
+          <h3>Gerard is no longer emo!</h3>
           <img src={happyGerard} />
         </div>
       );
