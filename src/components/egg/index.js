@@ -123,7 +123,11 @@ export default class Egg extends React.Component {
               level={this.state.level}
             />
 
-            <Buttons hurtMe={this.hurtMe} hugMe={this.hugMe} />
+            <Buttons
+              hurtMe={this.hurtMe}
+              hugMe={this.hugMe}
+              level={this.state.level}
+            />
           </div>
         </div>
       );
