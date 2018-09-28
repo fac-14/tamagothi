@@ -3,6 +3,7 @@ import Status from "./status";
 import Avatar from "./avatar";
 import Loading from "./loading";
 import Completed from "./completed";
+import Failed from "./failed";
 
 export default class Screen extends React.Component {
   render() {
@@ -15,7 +16,13 @@ export default class Screen extends React.Component {
     } else if (this.props.level >= 4) {
       return (
         <div id="screen">
-          <Completed />
+          <Completed name={this.props.name} />
+        </div>
+      );
+    } else if (this.props.level < 1) {
+      return (
+        <div id="screen">
+          <Failed name={this.props.name} />
         </div>
       );
     } else {
