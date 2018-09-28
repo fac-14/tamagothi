@@ -62,10 +62,6 @@ export default class Egg extends React.Component {
   };
 
   hugMe = event => {
-<<<<<<< HEAD
-    console.log("lyrics ", this.state.lyrics);
-=======
->>>>>>> master
     const newStats = increaseHealth(this.state.health, this.state.level);
     this.setState({
       health: newStats[0],
@@ -88,21 +84,6 @@ export default class Egg extends React.Component {
     location.reload();
   };
 
-<<<<<<< HEAD
-=======
-  // componentDidMount() {
-  //   const trackIDone = 85839311;
-  //   const trackIDtwo = 153938197;
-  //   const trackIDthree = 114306264;
-  //   const trackOne = getLyrics(trackIDone);
-  //   const trackTwo = getLyrics(trackIDtwo);
-  //   const trackThree = getLyrics(trackIDthree);
-  //   Promise.all([trackOne, trackTwo, trackThree]).then(tracks => {
-  //     this.setState({ lyrics: tracks });
-  //   });
-  // }
-
->>>>>>> master
   render() {
     if (this.state.name === null) {
       return (

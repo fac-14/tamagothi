@@ -31,7 +31,7 @@ export default class Screen extends React.Component {
           <Status health={this.props.health} level={this.props.level} />
           {!this.props.lyricHidden && <p>{this.props.randomLyric}</p>}
           {this.props.lyricHidden && (
-            <Avatar avatarObj={this.props.avatarObj} />
+          <Avatar avatarObj={this.props.avatarObj} />
           )}
         </div>
       );
