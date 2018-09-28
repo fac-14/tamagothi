@@ -65,17 +65,8 @@ export default class Egg extends React.Component {
 
   hugMe = event => {
     console.log("lyrics ", this.state.lyrics);
-<<<<<<< HEAD
+
     const newStats = increaseHealth(this.state.health, this.state.level);
-=======
-    const newStats = increaseHealth(
-      this.state.health,
-      this.state.level,
-      avatarObj,
-      this.state.name
-    );
-    const newAvatar = checkAvatar(this.state.level, avatarObj, this.state.name);
->>>>>>> master
     this.setState({
       health: newStats[0],
       level: newStats[1]
@@ -89,8 +80,6 @@ export default class Egg extends React.Component {
     this.toggleLyric();
   };
 
-<<<<<<< HEAD
-=======
   restart = event => {
     location.reload();
   };
@@ -107,7 +96,6 @@ export default class Egg extends React.Component {
   //   });
   // }
 
->>>>>>> master
   render() {
     if (this.state.name === null) {
       return (

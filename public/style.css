@@ -7,11 +7,11 @@
 }
 
 body {
-  background: #CCC;
+  background: #ccc;
 }
 
 p {
-  font-family: 'VT323', monospace;
+  font-family: "VT323", monospace;
   text-align: center;
 }
 
@@ -19,16 +19,14 @@ h1 {
   font-size: 3rem;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: "Frijole", cursive;
-  text-shadow: 
-    2px 1px 3px #39304A,
-    3px 2px 4px #b73328,
-    -2px -1px #FFF;
+  text-shadow: 2px 1px 3px #39304a, 3px 2px 4px #b73328, -2px -1px #fff;
 }
 
 h3 {
-  font-family: 'VT323', monospace;
+  font-family: "VT323", monospace;
   text-align: center;
 }
 
@@ -44,12 +42,10 @@ button {
   margin-top: 20px;
   color: white;
   font-family: Frijole, cursive;
-  background: #80241C;
+  background: #80241c;
   border: 2px black solid;
   font-size: 1.5rem;
-  box-shadow: 
-    2px 2px 2px #000,
-    inset 2px 2px 4px #ee4839;
+  box-shadow: 2px 2px 2px #000, inset 2px 2px 4px #ee4839;
 }
 
 button:hover {
@@ -64,27 +60,27 @@ button:active {
 progress[value] {
   /* Reset the default appearance */
   -webkit-appearance: none;
-   appearance: none;
+  appearance: none;
 
   width: 150px;
   height: 10px;
 }
 
 progress[value]::-webkit-progress-bar {
-  background-color: #E6E8E6;
+  background-color: #e6e8e6;
   border-radius: 2px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) inset;
 }
 
 progress[value]::-webkit-progress-value {
-  background: #80241C;
-    border-radius: 2px; 
-    background-size: 35px 20px, 100% 100%, 100% 100%;
+  background: #80241c;
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
 #main {
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "a d d d d d d f"
     "a b b b b b b f"
     "a b b b b b b f"
@@ -116,15 +112,15 @@ progress[value]::-webkit-progress-value {
 }
 
 #egg-drawing {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-   width: 560px;
-   height: 100%;
-   background-color: #39304A;
-   -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
-   border-radius:         50%  50%  50%  50%  / 60%   60%   40%  40%;
+  width: 560px;
+  height: 100%;
+  background-color: #39304a;
+  -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }
 
 #screen {
@@ -138,9 +134,7 @@ progress[value]::-webkit-progress-value {
   border-radius: 4px;
   border: 1px #333 solid;
   background-color: rgb(201, 202, 188);
-  box-shadow: 
-    2px 2px 4px #000,
-    inset 2px 2px 4px #666;
+  box-shadow: 2px 2px 4px #000, inset 2px 2px 4px #666;
 }
 
 #buttons {
@@ -155,6 +149,11 @@ progress[value]::-webkit-progress-value {
   align-items: center;
   justify-content: center;
   grid-area: c;
+  flex-direction: column;
+}
+
+#banner > h2 {
+  margin-bottom: 16px;
 }
 
 #loading {
